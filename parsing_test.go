@@ -449,7 +449,26 @@ func TestConstantParsing(test *testing.T) {
 				},
 			},
 		},
-	}
+		TokenParsingTest{
+			Name:  "Single parameter",
+			Input: "foo",
+			Expected: []ExpressionToken{
+				ExpressionToken{
+					Kind:  VARIABLE,
+					Value: "foo",
+				},
+			},
+		},
+		TokenParsingTest{
+			Name:  "Single parameter",
+			Input: "$1",
+			Expected: []ExpressionToken{
+				ExpressionToken{
+					Kind:  VARIABLE,
+					Value: "$1",
+				},
+			},
+		}}
 
 	tokenParsingTests = combineWhitespaceExpressions(tokenParsingTests)
 	runTokenParsingTest(tokenParsingTests, test)
